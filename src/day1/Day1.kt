@@ -7,7 +7,14 @@ fun main() {
     println(result)
 }
 
-fun processInput(lines: Sequence<String>) = lines
-    .map(String::toInt)
-    .map { it / 3 - 2 }
+fun processInput(lines: Sequence<String>): Int =
+    lines.map(String::toInt)
+    .map { computeOverallFuel(computeFuel(it)) }
     .sum()
+
+tailrec fun computeOverallFuel(mass: Int): Int = when {
+    mass > 0 -> mass + computeOverallFuel(computeFuel(mass))
+    else -> 0
+}
+
+fun computeFuel(mass: Int) = mass / 3 - 2
