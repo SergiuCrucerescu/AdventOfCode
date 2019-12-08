@@ -10,7 +10,7 @@ fun main() {
 fun processInput(lines: Sequence<String>): Int =
     lines.map(String::toInt)
         .flatMap { mass ->
-            generateSequence(mass, { it / 3 - 2})
+            generateSequence(mass, { it / 3 - 2 })
                 .drop(1)
                 .takeWhile { it > 0 }
-    }.sum()
+        }.sum()
