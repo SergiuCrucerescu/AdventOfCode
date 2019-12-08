@@ -19,8 +19,7 @@ fun processInput(lines: Sequence<String>): Int =
         .flatMap { computeFuelSequence(it) }
         .sum()
 
-fun computeFuelSequence(mass: Int): Sequence<Int> {
-    return generateSequence(mass, { it / 3 - 2 })
+fun computeFuelSequence(mass: Int): Sequence<Int> =
+    generateSequence(mass, { it / 3 - 2 })
         .drop(1)
         .takeWhile { it > 0 }
-}
