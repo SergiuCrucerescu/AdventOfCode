@@ -9,11 +9,11 @@ fun main() {
     assertEquals(listOf(2, 4, 4, 5, 99, 9801), computeIntCode(listOf(2, 4, 4, 5, 99, 0)))
     assertEquals(listOf(30, 1, 1, 4, 2, 5, 6, 0, 99), computeIntCode(listOf(1, 1, 1, 4, 99, 5, 6, 0, 99)))
 
-    File("day2.txt").useLines { processInput(it, 12, 2) }.also(::println)
+    File("res/day2.txt").useLines { processInput(it, 12, 2) }.also(::println)
 
     (0..99).flatMap { noun -> (0..99).map { verb -> Pair(noun, verb) } }
             .find { pair ->
-                File("day2.txt").useLines { processInput(it, pair.first, pair.second) } == 19690720
+                File("res/day2.txt").useLines { processInput(it, pair.first, pair.second) } == 19690720
             }
             .also(::println)
             ?.let { 100 * it.first + it.second }

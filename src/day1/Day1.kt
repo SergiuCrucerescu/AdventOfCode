@@ -4,7 +4,7 @@ import java.io.File
 import kotlin.test.assertEquals
 
 fun main() {
-    val result = File("day1.txt").useLines { processInput(it) }
+    val result = File("res/day1.txt").useLines { processInput(it) }
 
     assertEquals(2, computeFuelSequence(12).sum())
     assertEquals(2, computeFuelSequence(14).sum())
